@@ -6,3 +6,4 @@ set(
 
 add_executable(ctalkc ${CTALKC_SOURCES})
 target_include_directories(ctalkc PRIVATE include)
+target_link_libraries(ctalkc PRIVATE ctalkp)

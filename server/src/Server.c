@@ -2,5 +2,5 @@
 
 int initializeServer()
 {
-    return 0;
+    return initializeProtocol();
 }

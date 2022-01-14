@@ -2,5 +2,5 @@
 
 int initializeClient()
 {
-    return 0;
+    return initializeProtocol();
 }
