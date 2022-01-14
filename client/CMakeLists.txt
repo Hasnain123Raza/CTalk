@@ -1,9 +1,18 @@
+set(PACKAGE_NAME "ctalkc")
+set(PACKAGE_VERSION "1.0")
+set(PACKAGE_BUGREPORT "${PROJECT_BUGREPORT}")
+
 set(
-    CTALKC_SOURCES
+    SOURCES
     src/main.c
     src/Client.c
 )
 
-add_executable(ctalkc ${CTALKC_SOURCES})
-target_include_directories(ctalkc PRIVATE include)
-target_link_libraries(ctalkc PRIVATE ctalkp)
+add_executable("${PACKAGE_NAME}" ${SOURCES})
+configure_file(config.h.in config.h)
+target_include_directories(
+    "${PACKAGE_NAME}" 
+    PRIVATE include
+    PUBLIC "${CMAKE_CURRENT_BINARY_DIR}"
+)
+target_link_libraries("${PACKAGE_NAME}" PRIVATE ctalkp)
