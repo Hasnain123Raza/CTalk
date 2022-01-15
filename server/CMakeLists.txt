@@ -6,6 +6,7 @@ set(
     SOURCES
     src/main.c
     src/Server.c
+    src/ArgumentParser.c
 )
 
 add_executable("${PACKAGE_NAME}" ${SOURCES})
