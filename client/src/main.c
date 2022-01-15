@@ -10,8 +10,13 @@ int main(int argc, char **argv)
     ApplicationConfigurations configurations = { 0 };
     parseArguments(argc, argv, &configurations);
 
-    printf("%s\n", PACKAGE_STRING);
-    printf("Client status: %d\n", initializeClient());
+    int socketFileDescriptor = getClientSocketFileDescriptor(&configurations);
+    if (socketFileDescriptor != 0)
+        return 1;
+    
+    getchar();
+
+    closeClientSocketFileDescriptor(socketFileDescriptor);
 
     return 0;
 }
